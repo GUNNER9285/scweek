@@ -16,7 +16,7 @@ class CreatePeoplePollTable extends Migration
         Schema::create('people_poll', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_people')->unsigned();
-            $table->integer('id_room')->unsigned();
+            $table->integer('id_poll')->unsigned();
 
             $table->foreign('id_people')
                 ->references('id')

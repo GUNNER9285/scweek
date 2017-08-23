@@ -24,6 +24,7 @@ class CreatePeopleTable extends Migration
             $table->integer('status');
             $table->integer('count');
             $table->timestamps();
+            $table->unique(['firstname','lastname']);
         });
     }
 
