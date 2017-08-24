@@ -115,7 +115,35 @@ class PeopleController extends Controller
             'id_room' => $idr
         ];
         People_Room::create($people_room);
-        return "Finish";
+        return view('success');
     }
 
+    public function total($day)
+    {
+        if($day == 0){
+            $allroom = People::all()->count();
+            $room1 = People_Room::where('id_room','=',1)->count();
+            $room2 = People_Room::where('id_room','=',2)->count();
+            $room3 = People_Room::where('id_room','=',3)->count();
+        }
+        else{
+            $allroom = People::whereDate('created_at', '=', date('2017-08-'.$day))->count();
+            $room1 = People_Room::where('id_room','=',1)
+                ->whereDate('created_at', '=', date('2017-08-'.$day))
+                ->count();
+            $room2 = People_Room::where('id_room','=',2)
+                ->whereDate('created_at', '=', date('2017-08-'.$day))
+                ->count();
+            $room3 = People_Room::where('id_room','=',3)
+                ->whereDate('created_at', '=', date('2017-08-'.$day))
+                ->count();
+        }
+        $total = [
+            'total_room' => $allroom,
+            'total_room1' => $room1,
+            'total_room2' => $room2,
+            'total_room3' => $room3,
+        ];
+        return $total;
+    }
 }

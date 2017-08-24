@@ -30,3 +30,5 @@ Route::get('/showroom/{id}', 'PeopleController@showroom');
 
 Route::get('/checkin/{id}', 'PeopleController@checkin');
 Route::get('/submit/{id}/{idr}', 'PeopleController@addroom');
+
+Route::get('api/total/{day}', 'PeopleController@total');

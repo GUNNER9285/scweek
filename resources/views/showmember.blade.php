@@ -23,36 +23,7 @@
         </div>
     </div>
     <p>ผู้เข้าชมงานสัปดาห์วิทยาศาสตร์ประจำปี 2560 คณะวิทยาศาสตร์ มหาวิทยาลัยศิลปากร</p>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>School</th>
-            <th>Class</th>
-            <th>Job</th>
-            <th>Count</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($peoples as $people)
-            <tr>
-                <td>{{$people->id}}</td>
-                <td>{{$people->firstname}}</td>
-                <td>{{$people->lastname}}</td>
-                <td>{{$people->gender}}</td>
-                <td>{{$people->age}}</td>
-                <td>{{$people->school}}</td>
-                <td>{{$people->class}}</td>
-                <td>{{$people->job}}</td>
-                <td>{{$people->count}}</td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+    @include('table_p',$peoples)
 </div>
 
 </body>
