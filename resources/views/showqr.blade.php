@@ -1,4 +1,4 @@
-{!! QrCode::size(100)->generate($people->id) !!}
+{!! QrCode::size(150)->generate($people->id) !!}
 <br>
-{{$people->id}}<br>
-{{$people->firstname}}
+ID : {{$people->id}}<br>
+Name : {{$people->firstname}}
