@@ -19,4 +19,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/submit', 'PeopleController@index');
+Route::post('/student', 'PeopleController@student');
+Route::post('/teacher', 'PeopleController@teacher');
+Route::post('/people', 'PeopleController@people');
+
+Route::get('/show/{id}','PeopleController@showqr');

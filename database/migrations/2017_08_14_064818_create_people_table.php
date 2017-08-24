@@ -19,7 +19,8 @@ class CreatePeopleTable extends Migration
             $table->string('lastname');
             $table->string('gender');
             $table->integer('age');
-            $table->integer('class');
+            $table->string('school');
+            $table->string('class');
             $table->string('job');
             $table->integer('status');
             $table->integer('count');

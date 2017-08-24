@@ -5,8 +5,8 @@
 &nbsp;&nbsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;{{ Form::text('lastname') }}
 <br>
 {{ Form::label('gender', 'เพศ')}}<br>
-{{ Form::radio('sex', 'male') }} ชาย <br>
-{{ Form::radio('sex', 'female') }} หญิง
+{{ Form::radio('gender', 'male') }} ชาย <br>
+{{ Form::radio('gender', 'female') }} หญิง
 <br>
 {{ Form::label('school', 'สถานศึกษา')}}
 &emsp;&emsp;{{ Form::text('school') }}

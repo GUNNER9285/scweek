@@ -60,28 +60,28 @@
         <br><br>
 
     <div class = "container" id="form_student">
-        <div>
+        <div class="text-center">
             <h1> Student </h1>
             <br>
-            {{ Form::open(['url' => '/submit']) }}
+            {{ Form::open(['url' => '/student']) }}
                 @include('form_student', ['submitBtn' => 'sign up'])
             {{ Form::close() }}
         </div>
      </div>
     <div class = "container" id="form_teacher">
-        <div>
+        <div class="text-center">
             <h1> Teacher </h1>
             <br>
-            {{ Form::open(['url' => '/submit']) }}
+            {{ Form::open(['url' => '/teacher']) }}
                 @include('form_teacher', ['submitBtn' => 'sign up'])
             {{ Form::close() }}
         </div>
     </div>
     <div class = "container" id="form_people">
-        <div>
+        <div class="text-center">
             <h1> People </h1>
             <br>
-            {{ Form::open(['url' => '/submit']) }}
+            {{ Form::open(['url' => '/people']) }}
                 @include('form_people', ['submitBtn' => 'sign up'])
             {{ Form::close() }}
         </div>

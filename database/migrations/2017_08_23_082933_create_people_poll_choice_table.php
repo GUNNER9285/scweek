@@ -13,7 +13,7 @@ class CreatePeoplePollChoiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('people_choice_room', function (Blueprint $table) {
+        Schema::create('people_choice_poll', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_choice')->unsigned();
             $table->integer('id_people_poll')->unsigned();
