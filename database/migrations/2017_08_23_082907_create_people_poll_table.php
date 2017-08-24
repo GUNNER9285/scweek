@@ -17,6 +17,7 @@ class CreatePeoplePollTable extends Migration
             $table->increments('id');
             $table->integer('id_people')->unsigned();
             $table->integer('id_poll')->unsigned();
+            $table->timestamps();
 
             $table->foreign('id_people')
                 ->references('id')

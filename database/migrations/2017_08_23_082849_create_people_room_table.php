@@ -17,6 +17,7 @@ class CreatePeopleRoomTable extends Migration
             $table->increments('id');
             $table->integer('id_people')->unsigned();
             $table->integer('id_room')->unsigned();
+            $table->timestamps();
 
             $table->foreign('id_people')
                 ->references('id')
@@ -24,6 +25,7 @@ class CreatePeopleRoomTable extends Migration
             $table->foreign('id_room')
                 ->references('id')
                 ->on('room');
+
         });
     }
 

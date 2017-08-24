@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\People;
-use App\School;
+use App\People_Room;
 use Illuminate\Http\Request;
 
 class PeopleController extends Controller
@@ -84,10 +84,38 @@ class PeopleController extends Controller
         $tmp = People::create($people);
         return redirect('/show/'.$tmp->id);
     }
-
     public function showqr($id)
     {
         $people = People::find($id);
         return view('showqr',['people'=>$people]);
     }
+    public function showmember()
+    {
+        $peoples = People::all();
+        return view('showmember',['peoples'=>$peoples]);
+    }
+    public function showroom($id)
+    {
+        $p_room = People_Room::where('id_room','=',$id)->get();
+        $peoples = [];
+        foreach ($p_room as $p){
+            $people = People::where('id','=',$p->id_people)->first();
+            array_push($peoples, $people);
+        }
+        return view('showp_room',['peoples'=>$peoples, 'id_room'=>$id]);
+    }
+    public function checkin($id)
+    {
+        return view('selectroom',['id_people'=>$id]);
+    }
+    public function addroom($id, $idr)
+    {
+        $people_room = [
+            'id_people' => $id,
+            'id_room' => $idr
+        ];
+        People_Room::create($people_room);
+        return "Finish";
+    }
+
 }

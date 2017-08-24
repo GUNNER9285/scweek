@@ -24,3 +24,9 @@ Route::post('/teacher', 'PeopleController@teacher');
 Route::post('/people', 'PeopleController@people');
 
 Route::get('/show/{id}','PeopleController@showqr');
+
+Route::get('/showmember', 'PeopleController@showmember');
+Route::get('/showroom/{id}', 'PeopleController@showroom');
+
+Route::get('/checkin/{id}', 'PeopleController@checkin');
+Route::get('/submit/{id}/{idr}', 'PeopleController@addroom');

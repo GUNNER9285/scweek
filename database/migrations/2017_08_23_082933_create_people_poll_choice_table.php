@@ -17,6 +17,7 @@ class CreatePeoplePollChoiceTable extends Migration
             $table->increments('id');
             $table->integer('id_choice')->unsigned();
             $table->integer('id_people_poll')->unsigned();
+            $table->timestamps();
 
             $table->foreign('id_choice')
                 ->references('id')
@@ -34,6 +35,6 @@ class CreatePeoplePollChoiceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('people_choice_room');
+        Schema::dropIfExists('people_choice_poll');
     }
 }
