@@ -138,6 +138,10 @@ class PeopleController extends Controller
                 ->whereDate('created_at', '=', date('2017-08-'.$day))
                 ->count();
         }
+        $allroom = (string)$allroom;
+        $room1 = (string)$room1;
+        $room2 = (string)$room2;
+        $room3 = (string)$room3;
         $total = [
             'total_room' => $allroom,
             'total_room1' => $room1,
