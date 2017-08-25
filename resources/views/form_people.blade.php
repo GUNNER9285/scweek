@@ -1,17 +1,13 @@
-{{ Form::label('firstname', 'ชื่อ')}}
-&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;{{ Form::text('firstname') }}
+{{ Form::text('firstname',null,['placeholder'=>' ชื่อ', 'style'=>'border-radius: 12px; margin-top:1%; width:80%']) }}
 <br>
-{{ Form::label('lastname', 'นามสกุล')}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ Form::text('lastname') }}
+{{ Form::text('lastname',null,['placeholder'=>' นามสกุล', 'style'=>'border-radius: 12px; margin-top:1%; width:80%']) }}
 <br>
 {{ Form::label('gender', 'เพศ')}}<br>
 {{ Form::radio('sex', 'male') }} ชาย <br>
 {{ Form::radio('sex', 'female') }} หญิง
 <br>
-{{ Form::label('age', 'อายุ')}}
-&emsp;&emsp;&nbsp;&nbsp;&nbsp;{{ Form::text('age') }}
+{{ Form::text('age',null,['placeholder'=>' อายุ', 'style'=>'border-radius: 12px; margin-top:1%; width:80%']) }}
 <br>
-{{ Form::label('job', 'อาชีพ')}}
-&emsp;&emsp;{{ Form::text('job') }}
+{{ Form::text('job',null,['placeholder'=>' อาชีพ', 'style'=>'border-radius: 12px; margin-top:1%; width:80%']) }}
 <br><br>
 {{Form::submit($submitBtn)}}

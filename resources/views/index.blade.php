@@ -40,6 +40,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
+
+<style>
+    body {
+        background-color: #f8941d;
+    }
+</style>
 <body>
     <div class = "container">
         <div class="row">
@@ -57,34 +63,31 @@
             width:90%;
         }
     </style>
-        <br><br>
-
-    <div class = "container" id="form_student">
-        <div class="text-center">
-            <h1> Student </h1>
-            <br>
-            {{ Form::open(['url' => '/student']) }}
-                @include('form_student', ['submitBtn' => 'sign up'])
-            {{ Form::close() }}
+     <br><br>
+    <div class="col-md-12">
+        <div class="col-md-4"></div>
+        <div class = "jumbotron col-md-4" id="form_student" style="background-color: white">
+                <h1> Student </h1>
+                <br>
+                {{ Form::open(['url' => '/student']) }}
+                    @include('form_student', ['submitBtn' => 'sign up'])
+                {{ Form::close() }}
+         </div>
+        <div class = "jumbotron col-md-4" id="form_teacher" style="background-color: white">
+                <h1> Teacher </h1>
+                <br>
+                {{ Form::open(['url' => '/teacher']) }}
+                    @include('form_teacher', ['submitBtn' => 'sign up'])
+                {{ Form::close() }}
         </div>
-     </div>
-    <div class = "container" id="form_teacher">
-        <div class="text-center">
-            <h1> Teacher </h1>
-            <br>
-            {{ Form::open(['url' => '/teacher']) }}
-                @include('form_teacher', ['submitBtn' => 'sign up'])
-            {{ Form::close() }}
+        <div class = "jumbotron col-md-4" id="form_people" style="background-color: white">
+                <h1> People </h1>
+                <br>
+                {{ Form::open(['url' => '/people']) }}
+                    @include('form_people', ['submitBtn' => 'sign up'])
+                {{ Form::close() }}
         </div>
-    </div>
-    <div class = "container" id="form_people">
-        <div class="text-center">
-            <h1> People </h1>
-            <br>
-            {{ Form::open(['url' => '/people']) }}
-                @include('form_people', ['submitBtn' => 'sign up'])
-            {{ Form::close() }}
-        </div>
+        <div class="col-md-4"></div>
     </div>
 </body>
 </html>
