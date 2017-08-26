@@ -37,7 +37,7 @@
         <h1> QR Code </h1>
         <br>
             <div id="print">
-            {!! QrCode::size(150)->generate('https://scweek60.herokuapp.com/checkin/'.$people->id) !!}
+            {!! QrCode::size(150)->generate($people->id) !!}
             <br>
             ID : {{$people->id}}<br>
             ชื่อ : {{$people->firstname}}<br>
