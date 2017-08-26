@@ -14,7 +14,7 @@
                                         'G7' => 'มัธยมศึกษาปีที่ 1','G8' => 'มัธยมศึกษาปีที่ 2', 'G9' => 'มัธยมศึกษาปีที่ 3',
                                         'G10' => 'มัธยมศึกษาปีที่ 4','G11' => 'มัธยมศึกษาปีที่ 5','G12' => 'มัธยมศึกษาปีที่ 6',
                                         'B1' => 'ปริญญาตรี', 'B2' => 'ปริญญาโท', 'B3' => 'ปริญญาเอก'
-], null, ['placeholder' => ' ระดับการศึกษา', 'style'=>'border-radius: 12px; width:80%'])}}
+], null, ['placeholder' => ' ระดับการศึกษา', 'style'=>'border-radius: 12px; margin-top:1%; width:80%'])}}
 <br>
 {{ Form::text('count', null, ['placeholder' => ' จำนวนนักเรียนที่พามา', 'style'=>'border-radius: 12px; margin-top:1%; width:80%'] )}}
 <br><br>

@@ -158,6 +158,15 @@ class PeopleController extends Controller
             'id_room' => $request->get('room_id')
         ];
         People_Room::create($people_room);
-        //return view('success');
+        return response()->json([
+            'keyOK' => "OK"
+        ]);
+    }
+
+    public function test()
+    {
+        return response()->json([
+            'keyOK' => "OK"
+        ]);
     }
 }

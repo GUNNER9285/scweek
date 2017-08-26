@@ -33,3 +33,5 @@ Route::get('/submit/{id}/{idr}', 'PeopleController@addroom');
 
 Route::get('/api/total/{day}', 'PeopleController@total');
 Route::post('/api/scanqr', 'PeopleController@scanqr');
+
+Route::get('/test', 'PeopleController@test');
