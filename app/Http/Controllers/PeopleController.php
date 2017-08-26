@@ -151,11 +151,11 @@ class PeopleController extends Controller
         return $total;
     }
 
-    public function scanqr($room_id, $user_id)
+    public function scanqr(Request $request)
     {
         $people_room = [
-            'id_people' => $user_id,
-            'id_room' => $room_id
+            'id_people' => $request->get('user_id'),
+            'id_room' => $request->get('room_id')
         ];
         People_Room::create($people_room);
         //return view('success');
