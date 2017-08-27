@@ -19,7 +19,7 @@ class PeopleController extends Controller
         $class = $request->get('class');
         $job = "";
         $status = 1;
-        $count = 1;
+        $count = 0;
         $student = [
             'firstname' => $firstname,
             'lastname' => $lastname,
@@ -70,12 +70,13 @@ class PeopleController extends Controller
         $class = "";
         $job = $request->get('job');
         $status = 3;
-        $count = 1;
+        $count = 0;
         $people = [
             'firstname' => $firstname,
             'lastname' => $lastname,
             'gender' => $gender,
             'age' => $age,
+            'school' => $school,
             'class' => $class,
             'job' => $job,
             'status' => $status,
@@ -121,22 +122,92 @@ class PeopleController extends Controller
     public function total($day)
     {
         if($day == 0){
+            //allroom
             $allroom = People::all()->count();
-            $room1 = People_Room::where('id_room','=',1)->count();
-            $room2 = People_Room::where('id_room','=',2)->count();
-            $room3 = People_Room::where('id_room','=',3)->count();
+            $people_allroom = People::all();
+            foreach ($people_allroom as $p){
+                if($p->count > 0){
+                    $allroom += $p->count;
+                }
+            }
+            //room1
+            $room1 = People_Room::where('id_room', '=', 1)->count();
+            $people_room1 = People_Room::where('id_room', '=', 1)->get();
+            foreach ($people_room1 as $p){
+                $people = People::where('id','=',$p->id_people)->first();
+                if($people->count > 0){
+                    $room1 += $people->count;
+                }
+            }
+            //room2
+            $room2 = People_Room::where('id_room', '=', 2)->count();
+            $people_room2 = People_Room::where('id_room', '=', 2)->get();
+            foreach ($people_room2 as $p){
+                $people = People::where('id','=',$p->id_people)->first();
+                if($people->count > 0){
+                    $room2 += $people->count;
+                }
+            }
+            //room3
+            $room3 = People_Room::where('id_room', '=', 3)->count();
+            $people_room3 = People_Room::where('id_room', '=', 3)->get();
+            foreach ($people_room3 as $p){
+                $people = People::where('id','=',$p->id_people)->first();
+                if($people->count > 0){
+                    $room3 += $people->count;
+                }
+            }
         }
         else{
-            $allroom = People::whereDate('created_at', '=', date('2017-08-'.$day))->count();
+            //allroom
+            $allroom = People::whereDate('created_at', '=', date('2017-08-'.$day))
+                ->count();
+            $people_allroom = People::whereDate('created_at', '=', date('2017-08-'.$day))
+                ->get();
+            foreach ($people_allroom as $p){
+                if($p->count > 0){
+                    $allroom += $p->count;
+                }
+            }
+            //room1
             $room1 = People_Room::where('id_room','=',1)
                 ->whereDate('created_at', '=', date('2017-08-'.$day))
                 ->count();
+            $people_room1 = People_Room::where('id_room', '=', 1)
+                ->whereDate('created_at', '=', date('2017-08-'.$day))
+                ->get();
+            foreach ($people_room1 as $p){
+                $people = People::where('id','=',$p->id_people)->first();
+                if($people->count > 0){
+                    $room1 += $people->count;
+                }
+            }
+            //room2
             $room2 = People_Room::where('id_room','=',2)
                 ->whereDate('created_at', '=', date('2017-08-'.$day))
                 ->count();
+            $people_room2 = People_Room::where('id_room', '=', 2)
+                ->whereDate('created_at', '=', date('2017-08-'.$day))
+                ->get();
+            foreach ($people_room2 as $p){
+                $people = People::where('id','=',$p->id_people)->first();
+                if($people->count > 0){
+                    $room2 += $people->count;
+                }
+            }
+            //room3
             $room3 = People_Room::where('id_room','=',3)
                 ->whereDate('created_at', '=', date('2017-08-'.$day))
                 ->count();
+            $people_room3 = People_Room::where('id_room', '=', 3)
+                ->whereDate('created_at', '=', date('2017-08-'.$day))
+                ->get();
+            foreach ($people_room3 as $p){
+                $people = People::where('id','=',$p->id_people)->first();
+                if($people->count > 0){
+                    $room3 += $people->count;
+                }
+            }
         }
         $allroom = (string)$allroom;
         $room1 = (string)$room1;
@@ -165,8 +236,18 @@ class PeopleController extends Controller
 
     public function test()
     {
-        return response()->json([
-            'keyOK' => "OK"
-        ]);
+
+
+        $allroom = People::whereDate('created_at', '=', date('2017-08-27'))
+            ->count();
+        $people_allroom = People::whereDate('created_at', '=', date('2017-08-27'))
+            ->get();
+        foreach ($people_allroom as $p){
+            if($p->count > 0){
+                $allroom += $p->count;
+            }
+        }
+
+        return $allroom;
     }
 }
