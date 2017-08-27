@@ -236,8 +236,6 @@ class PeopleController extends Controller
 
     public function test()
     {
-
-
         $allroom = People::whereDate('created_at', '=', date('2017-08-27'))
             ->count();
         $people_allroom = People::whereDate('created_at', '=', date('2017-08-27'))

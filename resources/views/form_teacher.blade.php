@@ -6,7 +6,7 @@
 {{ Form::radio('gender', 'male') }} ชาย <br>
 {{ Form::radio('gender', 'female') }} หญิง
 <br>
-{{ Form::text('school',null,['placeholder'=>' สถานศึกษา', 'style'=>'border-radius: 12px; margin-top:1%; width:80%'] )}}
+{{ Form::text('school',null,['placeholder'=>' สถานศึกษา' ,'id'=>'tagt' , 'style'=>'border-radius: 12px; margin-top:1%; width:80%', ] )}}
 <br>
 &nbsp;&nbsp;{{ Form::select('class', ['P1' => 'อนุบาล 1', 'P2' => 'อนุบาล 2','P3' => 'อนุบาล 3',
                                         'G1' => 'ประถมศึกษาชั้นปีที่ 1', 'G2' => 'ประถมศึกษาชั้นปีที่ 2', 'G3' => 'ประถมศึกษาชั้นปีที่ 3',
