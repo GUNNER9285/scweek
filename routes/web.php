@@ -34,4 +34,8 @@ Route::get('/submit/{id}/{idr}', 'PeopleController@addroom');
 Route::get('/api/total/{day}', 'PeopleController@total');
 Route::post('/api/scanqr', 'PeopleController@scanqr');
 
-Route::get('/test', 'PeopleController@test');
+Route::get('/edit/{id}', 'PeopleController@edit');
+Route::patch('/edit/{id}/success', 'PeopleController@update');
+Route::delete('/destroy/{id}', 'PeopleController@destroy');
+
+Route::get('/test', 'PeopleControllerph@test');

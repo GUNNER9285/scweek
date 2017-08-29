@@ -234,6 +234,37 @@ class PeopleController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        $people = People::find($id);
+        return view('edit', ['people' => $people]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $people = People::find($id);
+        $people -> firstname = $request -> firstname;
+        $people -> lastname = $request -> lastname;
+        $people -> gender = $request -> gender;
+        $people -> school = $request -> school;
+        $people -> count = $request -> count;
+        $people -> save();
+        return redirect('/showmember');
+    }
+
+    public function destroy($id)
+    {
+        $people_room = People_Room::all();
+        foreach ($people_room as $p){
+            if($p->id_people == $id){
+                $p->delete();
+            }
+        }
+        $people = People::find($id);
+        $people -> delete();
+        return redirect('/showmember');
+    }
+
     public function test()
     {
         $allroom = People::whereDate('created_at', '=', date('2017-08-27'))

@@ -11,6 +11,7 @@
         <th>Job</th>
         <th>Count</th>
         <th>Date/Time</th>
+        <th>หมายเเหตุ</th>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +27,14 @@
             <td>{{$people->job}}</td>
             <td>{{$people->count}}</td>
             <td>{{$people->created_at}}</td>
+            <td>
+                <a href="{{ url('/edit/'.$people -> id) }}"  class="btn btn-warning btn-block">Edit</a>
+                {{ Form::model($people,['url' => '/destroy/'.$people->id, 'method' => 'delete']) }}
+                    <button class = 'btn btn-danger btn-block' type="submit">
+                        Delete
+                    </button>
+                {{ Form::close() }}
+            </td>
         </tr>
     @endforeach
     </tbody>
