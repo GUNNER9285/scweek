@@ -252,14 +252,20 @@ class PeopleController extends Controller
         return redirect('/showmember');
     }
 
-    public function destroy($id)
+    public function destroyinroom($id)
     {
-        $people_room = People_Room::all();
+        $people_room = People_Room::where('id_room', '=', 1)->get();
         foreach ($people_room as $p){
             if($p->id_people == $id){
                 $p->delete();
             }
         }
+        return redirect('/showmember');
+    }
+
+    public function destroy($id)
+    {
+
         $people = People::find($id);
         $people -> delete();
         return redirect('/showmember');

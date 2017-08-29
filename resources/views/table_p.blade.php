@@ -29,6 +29,11 @@
             <td>{{$people->created_at}}</td>
             <td>
                 <a href="{{ url('/edit/'.$people -> id) }}"  class="btn btn-warning btn-block">Edit</a>
+                {{ Form::model($people,['url' => '/destroyR/'.$people->id, 'method' => 'delete']) }}
+                <button class = 'btn btn-danger btn-block' type="submit">
+                    Delete in room
+                </button>
+                {{ Form::close() }}
                 {{ Form::model($people,['url' => '/destroy/'.$people->id, 'method' => 'delete']) }}
                     <button class = 'btn btn-danger btn-block' type="submit">
                         Delete

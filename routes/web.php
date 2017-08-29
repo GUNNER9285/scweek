@@ -36,6 +36,7 @@ Route::post('/api/scanqr', 'PeopleController@scanqr');
 
 Route::get('/edit/{id}', 'PeopleController@edit');
 Route::patch('/edit/{id}/success', 'PeopleController@update');
+Route::delete('/destroyR/{id}', 'PeopleController@destroyinroom');
 Route::delete('/destroy/{id}', 'PeopleController@destroy');
 
 Route::get('/test', 'PeopleControllerph@test');
